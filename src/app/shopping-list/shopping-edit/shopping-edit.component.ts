@@ -23,11 +23,33 @@ export class ShoppingEditComponent implements OnInit {
   ngOnInit() {
   }
 
-  addIngredient() {
+  /**
+   * Add ingredient to the shopping list
+   * @return void
+   */
+  addIngredient(): void {
     const name = this.nameInputRef.nativeElement.value;
-    const amount = this.amountInputRef.nativeElement.value;
+    const amount = parseInt(this.amountInputRef.nativeElement.value);
     const ingredient = new Ingredient(name, amount);
     this.shoppingListService.addIngredient(ingredient);
+    this.resetInputs();
+  }
+
+  /**
+  * Remove all ingredients from the shopping list
+  * @return void
+  */
+  clearAllIngredients(): void {
+    this.shoppingListService.clearAllIngredients();
+  }
+
+  /**
+  * Clear inputs
+  * @return void
+  */
+  resetInputs(): void {
+    this.nameInputRef.nativeElement.value = '';
+    this.amountInputRef.nativeElement.value = '';
   }
 
 }
