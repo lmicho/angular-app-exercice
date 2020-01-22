@@ -32,22 +32,22 @@ export class ShoppingEditComponent implements OnInit {
     const amount = parseInt(this.amountInputRef.nativeElement.value);
     const ingredient = new Ingredient(name, amount);
     this.shoppingListService.addIngredient(ingredient);
-    this.resetInputs();
+    this.clearInputs();
   }
 
   /**
   * Remove all ingredients from the shopping list
   * @return void
   */
-  clearAllIngredients(): void {
-    this.shoppingListService.clearAllIngredients();
+  deleteAllIngredients(): void {
+    this.shoppingListService.deleteAllIngredients();
   }
 
   /**
   * Clear inputs
   * @return void
   */
-  resetInputs(): void {
+  clearInputs(): void {
     this.nameInputRef.nativeElement.value = '';
     this.amountInputRef.nativeElement.value = '';
   }

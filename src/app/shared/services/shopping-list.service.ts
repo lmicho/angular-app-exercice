@@ -38,7 +38,7 @@ export class ShoppingListService {
      * Remove all ingredients from the shopping list
      * @return void
      */
-    clearAllIngredients(): void {
+    deleteAllIngredients(): void {
         this.ingredients = [];
         this.ingredientsAdded.emit(this.ingredients.slice())
     }
